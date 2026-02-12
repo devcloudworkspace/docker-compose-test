@@ -1,6 +1,5 @@
 # .vscode
 .vscode/
-*.json
 
-./sb-backend/target
-./sb-frontend/target
+sb-backend/target/
+sb-frontend/target/

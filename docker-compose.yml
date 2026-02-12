@@ -10,7 +10,7 @@ services:
     environment:
       - POSTGRES_DB=testdb
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=
+      - POSTGRES_PASSWORD=postgres
 
   backendserver:
     depends_on:
