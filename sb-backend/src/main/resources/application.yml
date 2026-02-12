@@ -1,0 +1,22 @@
+spring:
+  datasource:
+#    initiazlize: true
+    # hikari:
+      # connection-timeout: 300000
+    # url: jdbc:postgresql://localhost:5432/testdb
+    # username: postgres
+    # password: postgres
+    # url: ${DB_URL}
+    # username: ${DB_USERNAME}
+    # password: ${DB_PASSWORD}
+    url: jdbc:postgresql://${DB_SERVER}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  jpa.properties.hibernate:
+    jdbc.lob.non_contextual_creation: true
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+  jpa.hibernate.ddl-auto: update # Hibernate ddl auto (create, create-drop, validate, update)
+server:
+  port: 8082
+test:
+  testval: Dummy

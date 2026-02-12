@@ -1,0 +1,42 @@
+#version: "3.8"
+services:
+  pg:
+    image: "postgres:13-alpine"
+    container_name: pgc
+    volumes:
+      - pg_img_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=testdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=
+
+  backendserver:
+    depends_on:
+      - pg
+    build: ./sb-backend
+    container_name: backendserverc
+    environment:        
+      - DB_SERVER=pg
+      - POSTGRES_DB=testdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 8082:8082
+    links:
+      - pg
+    
+  frontendserver:
+    depends_on:
+      - backendserver
+    build: ./sb-frontend
+    container_name: frontendserverc
+    environment:
+      - BACKENDSERVERURL=backendserver
+    ports:
+      - 8081:8081
+
+volumes:
+  pg_img_data:
+  

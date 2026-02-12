@@ -1,0 +1,4 @@
+server:
+  port: 8081
+
+backendBaseURL: http://${BACKENDSERVERURL}:8082/api/tutorials

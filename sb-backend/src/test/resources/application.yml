@@ -1,0 +1,25 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  database:
+    url: jdbc:h2:mem:dcbapp
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+test:
+  testval: Dummy
+DB_URL: jdbc:h2:mem:dcbapp
+DB_USERNAME: sa 
+DB_PASSWORD: password 
+DB_DRIVER: org.h2.Driver
+
+
+# spring.h2.console.enabled=true
+# spring.datasource.url=jdbc:h2:mem:dcbapp
+# spring.datasource.driver-class-name=org.h2.Driver
+# spring.datasource.username=sa
+# spring.datasource.password=password
+# spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
